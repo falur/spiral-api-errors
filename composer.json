@@ -1,0 +1,78 @@
+{
+    "name": "gian-tiaga/spiral-api-errors",
+    "type": "library",
+    "license": "MIT",
+    "description": "API error handling package for typed Spiral HTTP layers",
+    "authors": [
+        {
+            "name": "Ildar Enakaev",
+            "email": "ienakaev@ya.ru"
+        }
+    ],
+    "require": {
+        "php": ">=8.5",
+        "psr/http-message": "^2.0",
+        "psr/http-server-middleware": "^1.0",
+        "psr/log": "^3.0",
+        "gian-tiaga/spiral-openapi": "^0.1.0",
+        "spiral/framework": "^3.16"
+    },
+    "require-dev": {
+        "gian-tiaga/phpstan-strict-rules": "^0.1.0",
+        "php-cs-fixer/shim": "^3.95.23",
+        "phpstan/phpstan": "^2.1.54",
+        "phpunit/phpunit": "^13.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "GianTiaga\\SpiralApiErrors\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GianTiaga\\SpiralApiErrors\\Tests\\": "tests"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/falur/phpstan-strict-rules"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/falur/spiral-openapi"
+        }
+    ],
+    "scripts": {
+        "cs": "php-cs-fixer check --diff",
+        "cs:fix": "php-cs-fixer fix",
+        "phpstan": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "test": "vendor/bin/phpunit",
+        "qa": [
+            "@cs",
+            "@phpstan",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "spiral/composer-publish-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "homepage": "https://github.com/falur/spiral-api-errors",
+    "support": {
+        "issues": "https://github.com/falur/spiral-api-errors/issues",
+        "source": "https://github.com/falur/spiral-api-errors"
+    },
+    "scripts-descriptions": {
+        "cs": "Проверить стиль кода без изменения файлов",
+        "cs:fix": "Исправить стиль кода",
+        "phpstan": "Статический анализ максимального уровня",
+        "test": "Тесты пакета",
+        "qa": "Все блокирующие проверки пакета: стиль, анализ, тесты"
+    }
+}
