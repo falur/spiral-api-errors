@@ -11,19 +11,6 @@
 
 ## Установка
 
-Пакет не публикуется в Packagist, поэтому источник объявляется явно:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/falur/spiral-api-errors"
-        }
-    ]
-}
-```
-
 ```bash
 composer require gian-tiaga/spiral-api-errors:^0.1.0
 ```

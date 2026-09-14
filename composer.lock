@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ce8702ab345590e131ada9a109fbdf3",
+    "content-hash": "653787306b6e66a8517f986d840419b4",
     "packages": [
         {
             "name": "brick/math",
@@ -523,30 +523,7 @@
                     "GianTiaga\\SpiralOpenApi\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "GianTiaga\\SpiralOpenApi\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "cs": [
-                    "php-cs-fixer check --diff"
-                ],
-                "cs:fix": [
-                    "php-cs-fixer fix"
-                ],
-                "phpstan": [
-                    "vendor/bin/phpstan analyse --memory-limit=1G"
-                ],
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "qa": [
-                    "@cs",
-                    "@phpstan",
-                    "@test"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4135,30 +4112,7 @@
                     "GianTiaga\\PhpStanStrictRules\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "GianTiaga\\PhpStanStrictRules\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "cs": [
-                    "php-cs-fixer check --diff"
-                ],
-                "cs:fix": [
-                    "php-cs-fixer fix"
-                ],
-                "phpstan": [
-                    "vendor/bin/phpstan analyse --memory-limit=1G"
-                ],
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "qa": [
-                    "@cs",
-                    "@phpstan",
-                    "@test"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],

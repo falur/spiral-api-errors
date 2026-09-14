@@ -33,16 +33,6 @@
             "GianTiaga\\SpiralApiErrors\\Tests\\": "tests"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/falur/phpstan-strict-rules"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/falur/spiral-openapi"
-        }
-    ],
     "scripts": {
         "cs": "php-cs-fixer check --diff",
         "cs:fix": "php-cs-fixer fix",
