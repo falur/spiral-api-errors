@@ -14,7 +14,7 @@
         "psr/http-message": "^2.0",
         "psr/http-server-middleware": "^1.0",
         "psr/log": "^3.0",
-        "gian-tiaga/spiral-openapi": "^0.2.0",
+        "gian-tiaga/spiral-openapi": "^0.2.1",
         "spiral/framework": "^3.16"
     },
     "require-dev": {

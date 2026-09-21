@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8916b830796aaaac7aecfffe0270d6d7",
+    "content-hash": "242268d60149ff143de4ba04cd2d079d",
     "packages": [
         {
             "name": "brick/math",
@@ -491,16 +491,16 @@
         },
         {
             "name": "gian-tiaga/spiral-openapi",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/falur/spiral-openapi.git",
-                "reference": "749a9f8d725e858c26adda1af9e35993b91cb4e0"
+                "reference": "dbba40a3b65ef8e3bc6f5621b068b807e9c37c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/falur/spiral-openapi/zipball/749a9f8d725e858c26adda1af9e35993b91cb4e0",
-                "reference": "749a9f8d725e858c26adda1af9e35993b91cb4e0",
+                "url": "https://api.github.com/repos/falur/spiral-openapi/zipball/dbba40a3b65ef8e3bc6f5621b068b807e9c37c6e",
+                "reference": "dbba40a3b65ef8e3bc6f5621b068b807e9c37c6e",
                 "shasum": ""
             },
             "require": {
@@ -540,7 +540,7 @@
                 "issues": "https://github.com/falur/spiral-openapi/issues",
                 "source": "https://github.com/falur/spiral-openapi"
             },
-            "time": "2026-09-20T10:42:18+00:00"
+            "time": "2026-09-21T16:57:18+00:00"
         },
         {
             "name": "graham-campbell/result-type",

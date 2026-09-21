@@ -31,6 +31,21 @@ final class ApiValidationErrorsRendererTest extends TestCase
         self::assertSame(HttpStatus::UnprocessableEntity->value, $response->getStatusCode());
         self::assertSame('{"message":"Validation error","code":422,"errors":[{"field":"nickname","messages":["Никнейм имеет неверный формат","Никнейм не должен содержать две точки подряд"]}]}', (string) $response->getBody());
     }
+    public function testRendererFlattensNestedFilterErrorsIntoDottedFields(): void
+    {
+        // Вложенный Filter приходит картой «поле вложенного объекта → сообщения». Наружу она
+        // уходит той же формой, что и обычное поле: адрес через точку и список строк.
+        $response = (new ApiValidationErrorsRenderer(logger: new NullLogger(), translator: self::englishTranslator()))->render($this->fieldErrors('{"prices":{"receipt":["Цена приёма обязательна."],"storageDaily":"Цена хранения обязательна."},"name":["Значение не должно быть пустым."]}'));
+        self::assertSame(HttpStatus::UnprocessableEntity->value, $response->getStatusCode());
+        self::assertSame('{"message":"Validation error","code":422,"errors":[{"field":"prices.receipt","messages":["Цена приёма обязательна."]},{"field":"prices.storageDaily","messages":["Цена хранения обязательна."]},{"field":"name","messages":["Значение не должно быть пустым."]}]}', (string) $response->getBody());
+    }
+    public function testRendererKeepsOwnMessagesOfFieldThatAlsoHasNestedErrors(): void
+    {
+        // У поля бывают и собственное сообщение, и ошибки внутри: обе стороны доходят до
+        // клиента, и ни одна не съедает другую.
+        $response = (new ApiValidationErrorsRenderer(logger: new NullLogger(), translator: self::englishTranslator()))->render($this->fieldErrors('{"prices":{"0":"Тариф обязателен.","receipt":["Цена приёма обязательна."]}}'));
+        self::assertSame('{"message":"Validation error","code":422,"errors":[{"field":"prices","messages":["Тариф обязателен."]},{"field":"prices.receipt","messages":["Цена приёма обязательна."]}]}', (string) $response->getBody());
+    }
     public function testRendererReturnsEmptyListWhenFieldErrorListIsEmpty(): void
     {
         $response = (new ApiValidationErrorsRenderer(logger: new NullLogger(), translator: self::englishTranslator()))->render($this->fieldErrors('{"nickname":[]}'));

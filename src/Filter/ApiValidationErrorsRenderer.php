@@ -31,21 +31,50 @@ final readonly class ApiValidationErrorsRenderer implements ErrorsRendererInterf
     {
         $validationErrors = [];
         foreach ($errors as $field => $message) {
-            $validationErrors[] = new ValidationErrorItemResponse(field: $field, messages: $this->messages($message));
+            $validationErrors = [...$validationErrors, ...$this->fieldErrors(field: $field, message: $message)];
         }
         return $validationErrors;
     }
     /**
-     * Symfony-валидатор отдаёт сообщения поля списком, а casting-ошибки — строкой. Возвращаем
-     * все сообщения поля списком, не теряя дополнительные нарушения. Контракт остаётся
-     * array<string, string> (как у vendor-интерфейса) — список разворачивается здесь, без
-     * вложенного массива в типе.
+     * Ошибки одного поля приходят тремя видами: строкой от приведения значения, списком строк от
+     * Symfony-валидатора и картой вложенного Filter, у которой ключ — имя поля внутри вложенного
+     * объекта. Наружу все три уходят одной формой: адрес поля через точку и плоский список
+     * сообщений. Иначе клиент разбирал бы `messages` то как список строк, то как объект, и одно
+     * поле ответа значило бы две разные вещи.
      *
-     * @param string|list<string> $message
-     * @return list<string>
+     * Вид значения называет его ключ: числовой ключ — это сообщение самого поля, строковый —
+     * имя вложенного поля. Своё сообщение и ошибки внутри бывают у поля одновременно, и обе
+     * стороны доходят до клиента.
+     *
+     * Контракт интерфейса — array<string, string>, и настоящую форму значения он не описывает:
+     * вложенность у неё любой глубины, и типом её не выразить. Поэтому значение приходит сюда
+     * нетипизированным и сужается явными проверками — это граница, а дальше неё ни `mixed`, ни
+     * вложенный массив не уходят.
+     *
+     * @return list<ValidationErrorItemResponse>
      */
-    private function messages(string|array $message): array
+    private function fieldErrors(string $field, mixed $message): array
     {
-        return \is_array($message) ? $message : [$message];
+        if (\is_string($message)) {
+            return [new ValidationErrorItemResponse(field: $field, messages: [$message])];
+        }
+        if (!\is_array($message)) {
+            return [];
+        }
+        $messages = [];
+        $nested = [];
+        foreach ($message as $key => $value) {
+            if (\is_string($key)) {
+                $nested = [...$nested, ...$this->fieldErrors(field: \sprintf('%s.%s', $field, $key), message: $value)];
+                continue;
+            }
+            if (\is_string($value)) {
+                $messages[] = $value;
+            }
+        }
+        if ($nested === []) {
+            return [new ValidationErrorItemResponse(field: $field, messages: $messages)];
+        }
+        return $messages === [] ? $nested : [new ValidationErrorItemResponse(field: $field, messages: $messages), ...$nested];
     }
 }
