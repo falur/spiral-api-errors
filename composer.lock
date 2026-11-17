@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "242268d60149ff143de4ba04cd2d079d",
+    "content-hash": "8fa3ac35848fa934161d552eeada4620",
     "packages": [
         {
             "name": "brick/math",
@@ -491,16 +491,16 @@
         },
         {
             "name": "gian-tiaga/spiral-openapi",
-            "version": "v0.2.1",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/falur/spiral-openapi.git",
-                "reference": "dbba40a3b65ef8e3bc6f5621b068b807e9c37c6e"
+                "reference": "2b9d2f662c6cc2aee8762411a25a5e564ff914dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/falur/spiral-openapi/zipball/dbba40a3b65ef8e3bc6f5621b068b807e9c37c6e",
-                "reference": "dbba40a3b65ef8e3bc6f5621b068b807e9c37c6e",
+                "url": "https://api.github.com/repos/falur/spiral-openapi/zipball/2b9d2f662c6cc2aee8762411a25a5e564ff914dc",
+                "reference": "2b9d2f662c6cc2aee8762411a25a5e564ff914dc",
                 "shasum": ""
             },
             "require": {
@@ -540,7 +540,7 @@
                 "issues": "https://github.com/falur/spiral-openapi/issues",
                 "source": "https://github.com/falur/spiral-openapi"
             },
-            "time": "2026-09-21T16:57:18+00:00"
+            "time": "2026-11-17T12:12:59+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2901,16 +2901,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v8.1.7",
+            "version": "v8.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "773ac57f20e2795bdadb65b5b1b5f4850d498283"
+                "reference": "8d1232052c9cdef170ed9608b3147bca4f61ff69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/773ac57f20e2795bdadb65b5b1b5f4850d498283",
-                "reference": "773ac57f20e2795bdadb65b5b1b5f4850d498283",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/8d1232052c9cdef170ed9608b3147bca4f61ff69",
+                "reference": "8d1232052c9cdef170ed9608b3147bca4f61ff69",
                 "shasum": ""
             },
             "require": {
@@ -2963,7 +2963,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v8.1.7"
+                "source": "https://github.com/symfony/mime/tree/v8.1.10"
             },
             "funding": [
                 {
@@ -2983,7 +2983,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-04T11:02:17+00:00"
+            "time": "2026-10-28T17:58:38+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3925,16 +3925,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v8.1.6",
+            "version": "v8.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "0b4aa53a67f9fece88c665f1a1dadcfd25d93fe5"
+                "reference": "e8266f55160f674f290a5f567cb55e11e21f921b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/0b4aa53a67f9fece88c665f1a1dadcfd25d93fe5",
-                "reference": "0b4aa53a67f9fece88c665f1a1dadcfd25d93fe5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e8266f55160f674f290a5f567cb55e11e21f921b",
+                "reference": "e8266f55160f674f290a5f567cb55e11e21f921b",
                 "shasum": ""
             },
             "require": {
@@ -3977,7 +3977,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v8.1.6"
+                "source": "https://github.com/symfony/yaml/tree/v8.1.11"
             },
             "funding": [
                 {
@@ -3997,7 +3997,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-30T01:03:44+00:00"
+            "time": "2026-11-04T08:39:20+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
